@@ -6,13 +6,43 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+    	'log',
+	    'app\bootstrap\SetUp',
+    ],
 	'language' => 'ru-RU',
 	'name' => 'Мини-магазин',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+	'modules' => [
+		'admin' => [
+			'class' => 'app\modules\admin\Module',
+			'layout' => 'main',
+		],
+	],
+	'controllerMap' => [
+		'elfinder' => [
+			'class' => 'mihaildev\elfinder\Controller',
+			//'access' => ['@'],
+			'roots' => [
+				[
+					'baseUrl'=>'@web',
+					'basePath'=>'@webroot',
+					'path' => 'files/global',
+					'name' => 'Global'
+				],
+			],
+			'plugin' => [
+				[
+					'class' => '\mihaildev\elfinder\plugin\Sluggable',
+					'lowercase' => true,
+					'replacement' => '-',
+				],
+			],
+		]
+	],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -23,7 +53,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\store\Entities\User\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -51,6 +81,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+            	'admin' => 'admin/default/index',
             ],
         ],
 

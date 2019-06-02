@@ -2,7 +2,7 @@
 
 namespace tests\unit\models;
 
-use app\models\ContactForm;
+use app\store\Forms\ContactForm;
 use yii\mail\MessageInterface;
 
 class ContactFormTest extends \Codeception\Test\Unit
@@ -15,8 +15,8 @@ class ContactFormTest extends \Codeception\Test\Unit
 
     public function testEmailIsSentOnContact()
     {
-        /** @var ContactForm $model */
-        $this->model = $this->getMockBuilder('app\models\ContactForm')
+        /** @var \app\store\Forms\ContactForm $model */
+        $this->model = $this->getMockBuilder('app\store\Forms\ContactForm')
             ->setMethods(['validate'])
             ->getMock();
 

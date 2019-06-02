@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace app\store\Entities\User;
 
 class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
 {
