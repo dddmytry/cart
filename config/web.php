@@ -82,6 +82,9 @@ $config = [
             'showScriptName' => false,
             'rules' => [
             	'admin' => 'admin/default/index',
+
+	            'catalog' => 'shop/catalog/index',
+	            '<slug:[\w\-]+>' => 'shop/catalog/product',
             ],
         ],
 
