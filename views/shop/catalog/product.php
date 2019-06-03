@@ -11,7 +11,8 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $product->keywords]);
 $this->params['breadcrumbs'][] = ['label' => 'Каталог товаров', 'url' => ['/shop/catalog/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
-use yii\helpers\Html; ?>
+use yii\helpers\Html;
+use yii\helpers\Url; ?>
 
 <div class="catalog-product">
 	<div class="row">
@@ -21,7 +22,7 @@ use yii\helpers\Html; ?>
 			</div>
 			<h4 class="text-center"><?= $product->price ?> <small>руб.</small></h4>
 			<div class="sale text-center">
-				<a href="#" class="btn btn-primary">В корзину  <span class="glyphicon glyphicon-shopping-cart"></span></a>
+				<a href="<?= Url::to(['/shop/cart/add-from-button', 'id' => $product->id])  ?>" class="btn btn-primary" data-method="post">В корзину  <span class="glyphicon glyphicon-shopping-cart"></span></a>
 			</div>
 		</div>
 		<div class="col-sm-7">

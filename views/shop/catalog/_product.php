@@ -28,6 +28,6 @@ use yii\helpers\Url;
 		</div>
 	</div>
 	<div class="sale text-center">
-		<a href="#" class="btn btn-primary">В корзину  <span class="glyphicon glyphicon-shopping-cart"></span></a>
+		<a href="<?= Url::to(['/shop/cart/add-from-button', 'id' => $product->id])  ?>" class="btn btn-primary" data-method="post">В корзину  <span class="glyphicon glyphicon-shopping-cart"></span></a>
 	</div>
 </div>

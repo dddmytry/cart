@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use app\widgets\Alert;
+use app\widgets\CartWidget;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -59,9 +60,18 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+	    <div class="row">
+		    <div class="col-sm-6">
+			    <?= Breadcrumbs::widget([
+				    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+			    ]) ?>
+		    </div>
+		    <div class="col-sm-6">
+			    <div class="shop-card text-center">
+				    <?= CartWidget::widget() ?>
+			    </div>
+		    </div>
+	    </div>
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>

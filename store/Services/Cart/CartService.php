@@ -32,6 +32,16 @@ class CartService
 
 	public function set($id, $quantity): void
 	{
+		$this->cart->set($id, $quantity);
+	}
 
+	public function remove($id): void
+	{
+		$this->cart->remove($id);
+	}
+
+	public function clear(): void
+	{
+		$this->cart->clear();
 	}
 }

@@ -26,4 +26,9 @@ class ProductReadModel
 	{
 		return Product::findOne(['slug' => $slug]);
 	}
+
+	public function findById($id): ?Product
+	{
+		return Product::findOne($id);
+	}
 }
