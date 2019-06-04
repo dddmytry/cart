@@ -42,6 +42,9 @@ class ProductController extends Controller
                     'delete' => ['POST'],
                     'draft' => ['POST'],
                     'activate' => ['POST'],
+                    'move-photo-up' => ['POST'],
+                    'move-photo-down' => ['POST'],
+                    'remove-photo' => ['POST'],
                 ],
             ],
         ];

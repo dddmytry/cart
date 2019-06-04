@@ -103,6 +103,9 @@ a.desc:after {
         width: 100%;
         padding: 10px 15px;
     }
+    #dropdown-cart{
+        width: 100%!important;
+    }
 }
 
 .nav > li > form > button.logout:focus,

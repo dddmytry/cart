@@ -4,17 +4,15 @@ namespace app\modules\admin\forms;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\store\Entities\Product\Product;
+use app\store\Entities\Order\Order;
 
 /**
- * ProductSearch represents the model behind the search form of `app\store\Entities\Product\Product`.
+ * OrderSearch represents the model behind the search form of `app\store\Entities\Order\Order`.
  */
-class ProductSearch extends Model
+class OrderSearch extends Model
 {
 	public $id;
-	public $price;
-	public $name;
-	public $status;
+	public $customer_email;
 
     /**
      * {@inheritdoc}
@@ -22,8 +20,8 @@ class ProductSearch extends Model
     public function rules()
     {
         return [
-            [['id', 'price'], 'integer'],
-            [['name', 'status'], 'safe'],
+            [['id'], 'integer'],
+            [['customer_email'], 'safe'],
         ];
     }
 
@@ -36,7 +34,7 @@ class ProductSearch extends Model
      */
     public function search($params)
     {
-        $query = Product::find();
+        $query = Order::find();
 
         // add conditions that should always apply here
 
@@ -54,11 +52,9 @@ class ProductSearch extends Model
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'price' => $this->price,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'status', $this->status]);
+        $query->andFilterWhere(['like', 'customer_email', $this->customer_email]);
 
         return $dataProvider;
     }

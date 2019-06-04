@@ -19,7 +19,7 @@ use yii\helpers\Html;
 				<?= $cart->getAmount() ?> товар(а, ов) - <?= $cart->getCost()->getOrigin() ?> <span class="glyphicon glyphicon-rub"></span>
 			</span>
 		</button>
-		<ul id="dropdown-cart" class="dropdown-menu pull-right" style="width: 200%;">
+		<ul id="dropdown-cart" class="dropdown-menu pull-right" style="width: 150%;">
 			<li>
 				<table class="table table-striped table-hover">
 					<?php foreach ($cart->getItems() as $item): ?>
